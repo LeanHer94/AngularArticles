@@ -4,7 +4,7 @@
     </button>
     <mat-menu #menu="matMenu">
       <ng-container *ngFor="let item of menuItems">
-        <button mat-menu-item disabled>
+        <button mat-menu-item (click)="item.trigger()">
             <mat-icon>{{ item.icon }}</mat-icon>
             <span>{{ item.description }}</span>
         </button>

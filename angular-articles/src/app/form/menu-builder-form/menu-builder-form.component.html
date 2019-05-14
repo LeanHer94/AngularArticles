@@ -3,12 +3,20 @@
     <tr>
       <td>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Description of the option" formControlName="description" />
+          <input
+            matInput
+            placeholder="Description of the option"
+            formControlName="description"
+          />
         </mat-form-field>
       </td>
       <td>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="selected material icon" formControlName="icon" />
+          <input
+            matInput
+            placeholder="selected material icon"
+            formControlName="icon"
+          />
         </mat-form-field>
       </td>
     </tr>
@@ -26,29 +34,12 @@
     </mat-select>
   </mat-form-field>
 
-  <button type="submit">Submit</button>
+  <button mat-raised-button type="submit">Submit</button>
 </form>
 
-<p>
-  <i>
-    Selected values:
-  </i>
-  {{ commandsForm.value | json }}
-</p>
+<app-menu-item-list
+  [itemsToShow]="newMenuItemsBuffer"
+  (itemRemoved)="removeMenuItem($event)"
+></app-menu-item-list>
 
-<mat-list class="max-width">
-  <mat-list-item *ngFor="let item of newMenuItemsBuffer; let index = index;">
-    <table class="example-full-width" cellspacing="0">
-      <tr>
-        <td>
-          {{ item.description }}
-        </td>
-        <td style="float: right">
-          <button (click)="removeMenuItem(index)">Remove</button>
-        </td>
-      </tr>
-    </table>
-  </mat-list-item>
-</mat-list>
-
-<button (click)="confirmNewItems()">Confirm</button>
+<button mat-raised-button (click)="confirmNewItems()">Confirm</button>
