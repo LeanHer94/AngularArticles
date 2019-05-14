@@ -1,0 +1,14 @@
+<mat-list class="max-width">
+    <mat-list-item *ngFor="let item of itemsToShow; let index = index;">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            {{ item.description }}
+          </td>
+          <td style="float: right">
+            <button mat-raised-button (click)="removeMenuItem(index)">Remove</button>
+          </td>
+        </tr>
+      </table>
+    </mat-list-item>
+  </mat-list>
